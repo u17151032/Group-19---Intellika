@@ -2,16 +2,11 @@
 <SchemaComparison>
   <Version>10</Version>
   <SourceModelProvider>
-    <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=.;Initial Catalog=iServz;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False</ConnectionString>
-    </ConnectionBasedModelProvider>
-  </SourceModelProvider>
-  <TargetModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{aa14d6e0-c275-4f51-bb78-d02c965715b0}</ProjectGuid>
       <Name>iServzDB</Name>
     </ProjectBasedModelProvider>
-  </TargetModelProvider>
+  </SourceModelProvider>
   <SchemaCompareSettingsService>
     <SchemaCompareSettingsService>
       <PropertyElementName>
@@ -299,10 +294,6 @@
       <PropertyElementName>
         <Name>ScriptRefreshModule</Name>
         <Value>True</Value>
-      </PropertyElementName>
-      <PropertyElementName>
-        <Name>TargetDatabaseName</Name>
-        <Value>iServzDB</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>TargetConnectionString</Name>

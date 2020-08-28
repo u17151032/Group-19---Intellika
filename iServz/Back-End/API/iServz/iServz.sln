@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1231
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iServz", "iServz\iServz.csproj", "{1501D7C2-182B-4DFD-BFD2-3B4C92744299}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "iServzDB", "iServzDB\iServzDB.sqlproj", "{A57683DD-C412-412C-B619-721B4C20E07A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1501D7C2-182B-4DFD-BFD2-3B4C92744299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1501D7C2-182B-4DFD-BFD2-3B4C92744299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1501D7C2-182B-4DFD-BFD2-3B4C92744299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1501D7C2-182B-4DFD-BFD2-3B4C92744299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57683DD-C412-412C-B619-721B4C20E07A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91843BB0-8C17-4496-99D7-D4D2D60A4FB5}
+	EndGlobalSection
+EndGlobal

@@ -62,5 +62,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\USER.sql" />
     <Build Include="dbo\Tables\ServiceProvider.sql" />
+    <Build Include="dbo\Tables\Consumer_2.sql" />
+    <Build Include="dbo\Tables\Admin_2.sql" />
   </ItemGroup>
 </Project>

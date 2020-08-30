@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[SR_Status] (
+    [ID] INT IDENTITY (1, 1) NOT NULL,
+    CONSTRAINT [PK_SR_Status] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

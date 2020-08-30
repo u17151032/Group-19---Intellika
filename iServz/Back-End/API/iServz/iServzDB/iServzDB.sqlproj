@@ -65,5 +65,17 @@
     <Build Include="dbo\Tables\ServiceProvider_1.sql" />
     <Build Include="dbo\Tables\Consumer_1.sql" />
     <Build Include="dbo\Tables\Admin_1.sql" />
+    <Build Include="dbo\Tables\SR_Status.sql" />
+    <Build Include="dbo\Tables\SR_Line.sql" />
+    <Build Include="dbo\Tables\SP_SR.sql" />
+    <Build Include="dbo\Tables\ServiceRequest.sql" />
+    <Build Include="dbo\Tables\Service_Utility.sql" />
+    <Build Include="dbo\Tables\Service_SP.sql" />
+    <Build Include="dbo\Tables\Service.sql" />
+    <Build Include="dbo\Tables\Province.sql" />
+    <Build Include="dbo\Tables\Image.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\City.sql" />
+    <Build Include="dbo\Tables\Address.sql" />
   </ItemGroup>
 </Project>

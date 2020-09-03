@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InternetServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="InternetServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="ID" />
@@ -814,51 +814,51 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="InternetServicesModelStoreContainer">
-          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChargeItem" EntityType="Self.ChargeItem" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Consumer" EntityType="Self.Consumer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceOrder" EntityType="Self.ServiceOrder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceOrderLine" EntityType="Self.ServiceOrderLine" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceQuote" EntityType="Self.ServiceQuote" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceQuoteStatus" EntityType="Self.ServiceQuoteStatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceRequest" EntityType="Self.ServiceRequest" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SO_Status" EntityType="Self.SO_Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SP_Application" EntityType="Self.SP_Application" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SP_Application_Status" EntityType="Self.SP_Application_Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SP_Status" EntityType="Self.SP_Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SQ_Line" EntityType="Self.SQ_Line" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SR_Line" EntityType="Self.SR_Line" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SR_Status" EntityType="Self.SR_Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Surburb" EntityType="Self.Surburb" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Utility" EntityType="Self.Utility" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Service_SP" EntityType="Self.Service_SP" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ChargeItem" EntityType="Self.ChargeItem" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Consumer" EntityType="Self.Consumer" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceOrder" EntityType="Self.ServiceOrder" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceOrderLine" EntityType="Self.ServiceOrderLine" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceQuote" EntityType="Self.ServiceQuote" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceQuoteStatus" EntityType="Self.ServiceQuoteStatus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ServiceRequest" EntityType="Self.ServiceRequest" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SO_Status" EntityType="Self.SO_Status" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SP_Application" EntityType="Self.SP_Application" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SP_Application_Status" EntityType="Self.SP_Application_Status" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SP_Status" EntityType="Self.SP_Status" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SQ_Line" EntityType="Self.SQ_Line" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SR_Line" EntityType="Self.SR_Line" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SR_Status" EntityType="Self.SR_Status" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Surburb" EntityType="Self.Surburb" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Utility" EntityType="Self.Utility" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Service_SP" EntityType="Self.Service_SP" store:Type="Tables" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [Service_SP].[SP_ID] AS [SP_ID], 
     [Service_SP].[Service_ID] AS [Service_ID]
     FROM [dbo].[Service_SP] AS [Service_SP]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Service_Utility" EntityType="Self.Service_Utility" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Service_Utility" EntityType="Self.Service_Utility" store:Type="Tables" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [Service_Utility].[Utility_ID] AS [Utility_ID], 
     [Service_Utility].[Service_ID] AS [Service_ID]
     FROM [dbo].[Service_Utility] AS [Service_Utility]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="SO_Rating" EntityType="Self.SO_Rating" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="SO_Rating" EntityType="Self.SO_Rating" store:Type="Tables" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
             <DefiningQuery>SELECT 
     [SO_Rating].[Rating_ID] AS [Rating_ID], 
     [SO_Rating].[SO_ID] AS [SO_ID]
@@ -1029,12 +1029,12 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="InternetServicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="InternetServicesModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="StreetNumber" Type="Int32" />
           <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SuburbID" Type="Int32" />
@@ -1045,7 +1045,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="USER_ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1056,7 +1056,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Services" Relationship="Self.FK_Service_Category" FromRole="Category" ToRole="Service" />
@@ -1065,7 +1065,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ItemTypeID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ItemType" Relationship="Self.FK_ChargeItem_ItemType" FromRole="ChargeItem" ToRole="ItemType" />
@@ -1075,7 +1075,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProvinceID" Type="Int32" />
           <NavigationProperty Name="Province" Relationship="Self.FK_City_Province" FromRole="City" ToRole="Province" />
@@ -1085,7 +1085,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1103,7 +1103,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Provinces" Relationship="Self.FK_Province_Country" FromRole="Country" ToRole="Province" />
         </EntityType>
@@ -1111,7 +1111,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AdminID" Type="Int32" />
@@ -1125,7 +1125,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Attachment" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="SR_Line" Relationship="Self.FK_SR_Line_Image" FromRole="Image" ToRole="SR_Line" />
         </EntityType>
@@ -1133,7 +1133,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ChargeItems" Relationship="Self.FK_ChargeItem_ItemType" FromRole="ItemType" ToRole="ChargeItem" />
         </EntityType>
@@ -1141,7 +1141,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_Material" FromRole="Material" ToRole="ServiceOrderLine" />
         </EntityType>
@@ -1149,7 +1149,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Message1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Time" Type="DateTime" Precision="3" />
           <Property Name="SO_ID" Type="Int32" />
@@ -1159,7 +1159,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CountryID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cities" Relationship="Self.FK_City_Province" FromRole="Province" ToRole="City" />
@@ -1169,7 +1169,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Rate" Type="Int32" />
           <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ServiceOrders" Relationship="Self.SO_Rating" FromRole="Rating" ToRole="ServiceOrder" />
@@ -1178,7 +1178,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Decription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
@@ -1193,7 +1193,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="SO_Status_ID" Type="Int32" Nullable="false" />
           <Property Name="SQ_ID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Messages" Relationship="Self.FK_Messages_ServiceOrder" FromRole="ServiceOrder" ToRole="Messages" />
@@ -1206,7 +1206,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="SO_ID" Type="Int32" Nullable="false" />
           <Property Name="Service_ID" Type="Int32" Nullable="false" />
           <Property Name="SQ_ID" Type="Int32" />
@@ -1222,7 +1222,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="BusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1242,7 +1242,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AddtionalDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SQ_Status_ID" Type="Int32" />
           <Property Name="PaymentMethod_ID" Type="Int32" />
@@ -1256,7 +1256,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="ServiceQuotes" Relationship="Self.FK_ServiceQuote_ServiceQuoteStatus" FromRole="ServiceQuoteStatus" ToRole="ServiceQuote" />
         </EntityType>
@@ -1264,7 +1264,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Time" Type="Time" Precision="7" />
@@ -1278,7 +1278,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ServiceOrders" Relationship="Self.FK_ServiceOrder_SO_Status" FromRole="SO_Status" ToRole="ServiceOrder" />
         </EntityType>
@@ -1286,7 +1286,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ID_FrontBack" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="SP_ID" Type="Int32" Nullable="false" />
           <Property Name="SPA_Status_ID" Type="Int32" Nullable="false" />
@@ -1297,7 +1297,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="SP_Application" Relationship="Self.FK_SP_Application_SP_Application_Status" FromRole="SP_Application_Status" ToRole="SP_Application" />
         </EntityType>
@@ -1305,7 +1305,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ServiceProviders" Relationship="Self.FK_ServiceProvider_SP_Status" FromRole="SP_Status" ToRole="ServiceProvider" />
         </EntityType>
@@ -1313,7 +1313,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ServiceID" Type="Int32" Nullable="false" />
           <Property Name="SQ_ID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
@@ -1330,7 +1330,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Service_ID" Type="Int32" Nullable="false" />
           <Property Name="SR_ID" Type="Int32" Nullable="false" />
           <Property Name="Image_ID" Type="Int32" Nullable="false" />
@@ -1343,7 +1343,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="ServiceRequests" Relationship="Self.FK_ServiceRequest_SR_Status" FromRole="SR_Status" ToRole="ServiceRequest" />
         </EntityType>
@@ -1351,7 +1351,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CityID" Type="Int32" />
           <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Surburb" FromRole="Surburb" ToRole="Address" />
@@ -1363,7 +1363,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           </Key>
           <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
@@ -1371,7 +1371,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Username" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PowerSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1382,7 +1382,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="Int32" />
           <NavigationProperty Name="Services" Relationship="Self.Service_Utility" FromRole="Utility" ToRole="Service" />
         </EntityType>
@@ -1806,7 +1806,7 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
           <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
           <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="InternetServicesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="InternetServicesEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
@@ -2337,22 +2337,22 @@ error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationsh
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>

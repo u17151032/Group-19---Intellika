@@ -1,0 +1,2358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InternetServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StreetNumber" Type="int" />
+          <Property Name="StreetName" Type="varchar" MaxLength="50" />
+          <Property Name="SuburbID" Type="int" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ChargeItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Consumer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Number" Type="int" />
+          <Property Name="Cell_Number" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="10" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="AddressID" Type="int" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="AdminID" Type="int" />
+          <Property Name="ConsID" Type="int" />
+          <Property Name="SP_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Attachment" Type="image" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="SO_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Decription" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InternetServices.dbo.Service_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Service_SP">
+          <Key>
+            <PropertyRef Name="SP_ID" />
+            <PropertyRef Name="Service_ID" />
+          </Key>
+          <Property Name="SP_ID" Type="int" Nullable="false" />
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InternetServices.dbo.Service_Utility' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Service_Utility">
+          <Key>
+            <PropertyRef Name="Utility_ID" />
+            <PropertyRef Name="Service_ID" />
+          </Key>
+          <Property Name="Utility_ID" Type="int" Nullable="false" />
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SO_Status_ID" Type="int" Nullable="false" />
+          <Property Name="SQ_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceOrderLine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SO_ID" Type="int" Nullable="false" />
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+          <Property Name="SQ_ID" Type="int" />
+          <Property Name="SQL_ID" Type="int" />
+          <Property Name="Material_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="BusinessName" Type="varchar" MaxLength="50" />
+          <Property Name="AverageRating" Type="int" />
+          <Property Name="ID_Number" Type="int" />
+          <Property Name="Gender" Type="nchar" MaxLength="10" />
+          <Property Name="SP_Status_ID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceQuote">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddtionalDetails" Type="varchar" MaxLength="50" />
+          <Property Name="SQ_Status_ID" Type="int" />
+          <Property Name="PaymentMethod_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ServiceQuoteStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ServiceRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="10" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="ConsID" Type="int" />
+          <Property Name="SR_Status_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InternetServices.dbo.SO_Rating' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SO_Rating">
+          <Key>
+            <PropertyRef Name="Rating_ID" />
+            <PropertyRef Name="SO_ID" />
+          </Key>
+          <Property Name="Rating_ID" Type="int" Nullable="false" />
+          <Property Name="SO_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SO_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SP_Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FrontBack" Type="image" Nullable="false" />
+          <Property Name="SP_ID" Type="int" Nullable="false" />
+          <Property Name="SPA_Status_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SP_Application_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'InternetServices.dbo.SP_SR' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SP_SR">
+          <Property Name="SP_ID" Type="int" />
+          <Property Name="SR_ID" Type="int" />
+          <Property Name="SQ_ID" Type="int" />
+        </EntityType>-->
+        <EntityType Name="SP_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SQ_Line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="SQ_ID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="ChargeItem_ID" Type="int" Nullable="false" />
+          <Property Name="SRL_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SR_Line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service_ID" Type="int" Nullable="false" />
+          <Property Name="SR_ID" Type="int" Nullable="false" />
+          <Property Name="Image_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SR_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Surburb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CityID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="75" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="PowerSalt" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Utility">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="int" />
+        </EntityType>
+        <Association Name="FK_Address_Surburb">
+          <End Role="Surburb" Type="Self.Surburb" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Surburb">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="SuburbID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChargeItem_ItemType">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
+          <End Role="ChargeItem" Type="Self.ChargeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChargeItem">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Province">
+          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consumer_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consumer">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consumer_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consumer">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_Consumer">
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="ConsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_ServiceProvider">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="SP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ServiceOrder">
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="0..1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Province" Type="Self.Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Province">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_SP_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service_SP" Type="Self.Service_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service_SP">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_SP_ServiceProvider">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="1" />
+          <End Role="Service_SP" Type="Self.Service_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service_SP">
+              <PropertyRef Name="SP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Utility_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service_Utility" Type="Self.Service_Utility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service_Utility">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Utility_Utility">
+          <End Role="Utility" Type="Self.Utility" Multiplicity="1" />
+          <End Role="Service_Utility" Type="Self.Service_Utility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utility">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service_Utility">
+              <PropertyRef Name="Utility_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrder_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrder">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrder_SO_Status">
+          <End Role="SO_Status" Type="Self.SO_Status" Multiplicity="1" />
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SO_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrder">
+              <PropertyRef Name="SO_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="Material_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_ServiceOrder">
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_SQ_Line">
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SQ_Line">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SQL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceProvider_SP_Status">
+          <End Role="SP_Status" Type="Self.SP_Status" Multiplicity="1" />
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SP_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceProvider">
+              <PropertyRef Name="SP_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceProvider_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceProvider">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceQuote_ServiceQuoteStatus">
+          <End Role="ServiceQuoteStatus" Type="Self.ServiceQuoteStatus" Multiplicity="0..1" />
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuoteStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceQuote">
+              <PropertyRef Name="SQ_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceRequest_Consumer">
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="0..1" />
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceRequest">
+              <PropertyRef Name="ConsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceRequest_SR_Status">
+          <End Role="SR_Status" Type="Self.SR_Status" Multiplicity="1" />
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceRequest">
+              <PropertyRef Name="SR_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SO_Rating_Rating">
+          <End Role="Rating" Type="Self.Rating" Multiplicity="1" />
+          <End Role="SO_Rating" Type="Self.SO_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rating">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SO_Rating">
+              <PropertyRef Name="Rating_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SO_Rating_ServiceOrder">
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="1" />
+          <End Role="SO_Rating" Type="Self.SO_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SO_Rating">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Application_ServiceProvider">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="1" />
+          <End Role="SP_Application" Type="Self.SP_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SP_Application">
+              <PropertyRef Name="SP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Application_SP_Application_Status">
+          <End Role="SP_Application_Status" Type="Self.SP_Application_Status" Multiplicity="1" />
+          <End Role="SP_Application" Type="Self.SP_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SP_Application_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SP_Application">
+              <PropertyRef Name="SPA_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SP_SR_ServiceProvider" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SP_SR_ServiceQuote" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'InternetServices.dbo.SP_SR' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SP_SR_ServiceRequest" />-->
+        <Association Name="FK_SQ_Line_ChargeItem">
+          <End Role="ChargeItem" Type="Self.ChargeItem" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeItem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="ChargeItem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_ServiceQuote1">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_SR_Line">
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="0..1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR_Line">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SRL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="Image_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_ServiceRequest">
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="SR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Surburb_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Surburb" Type="Self.Surburb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Surburb">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InternetServicesModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChargeItem" EntityType="Self.ChargeItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consumer" EntityType="Self.Consumer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Function" EntityType="Self.Function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceOrder" EntityType="Self.ServiceOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceOrderLine" EntityType="Self.ServiceOrderLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceQuote" EntityType="Self.ServiceQuote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceQuoteStatus" EntityType="Self.ServiceQuoteStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceRequest" EntityType="Self.ServiceRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SO_Status" EntityType="Self.SO_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SP_Application" EntityType="Self.SP_Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SP_Application_Status" EntityType="Self.SP_Application_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SP_Status" EntityType="Self.SP_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SQ_Line" EntityType="Self.SQ_Line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SR_Line" EntityType="Self.SR_Line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SR_Status" EntityType="Self.SR_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Surburb" EntityType="Self.Surburb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utility" EntityType="Self.Utility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service_SP" EntityType="Self.Service_SP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Service_SP].[SP_ID] AS [SP_ID], 
+    [Service_SP].[Service_ID] AS [Service_ID]
+    FROM [dbo].[Service_SP] AS [Service_SP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Service_Utility" EntityType="Self.Service_Utility" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Service_Utility].[Utility_ID] AS [Utility_ID], 
+    [Service_Utility].[Service_ID] AS [Service_ID]
+    FROM [dbo].[Service_Utility] AS [Service_Utility]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SO_Rating" EntityType="Self.SO_Rating" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SO_Rating].[Rating_ID] AS [Rating_ID], 
+    [SO_Rating].[SO_ID] AS [SO_ID]
+    FROM [dbo].[SO_Rating] AS [SO_Rating]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Address_Surburb" Association="Self.FK_Address_Surburb">
+            <End Role="Surburb" EntitySet="Surburb" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChargeItem_ItemType" Association="Self.FK_ChargeItem_ItemType">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="ChargeItem" EntitySet="ChargeItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consumer_Address" Association="Self.FK_Consumer_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Consumer" EntitySet="Consumer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consumer_User" Association="Self.FK_Consumer_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Consumer" EntitySet="Consumer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_Admin" Association="Self.FK_Function_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Function" EntitySet="Function" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_Consumer" Association="Self.FK_Function_Consumer">
+            <End Role="Consumer" EntitySet="Consumer" />
+            <End Role="Function" EntitySet="Function" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_ServiceProvider" Association="Self.FK_Function_ServiceProvider">
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+            <End Role="Function" EntitySet="Function" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ServiceOrder" Association="Self.FK_Messages_ServiceOrder">
+            <End Role="ServiceOrder" EntitySet="ServiceOrder" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Province" EntitySet="Province" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Category" Association="Self.FK_Service_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_SP_Service" Association="Self.FK_Service_SP_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Service_SP" EntitySet="Service_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_SP_ServiceProvider" Association="Self.FK_Service_SP_ServiceProvider">
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+            <End Role="Service_SP" EntitySet="Service_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Utility_Service" Association="Self.FK_Service_Utility_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Service_Utility" EntitySet="Service_Utility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Utility_Utility" Association="Self.FK_Service_Utility_Utility">
+            <End Role="Utility" EntitySet="Utility" />
+            <End Role="Service_Utility" EntitySet="Service_Utility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrder_ServiceQuote" Association="Self.FK_ServiceOrder_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuote" />
+            <End Role="ServiceOrder" EntitySet="ServiceOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrder_SO_Status" Association="Self.FK_ServiceOrder_SO_Status">
+            <End Role="SO_Status" EntitySet="SO_Status" />
+            <End Role="ServiceOrder" EntitySet="ServiceOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_Material" Association="Self.FK_ServiceOrderLine_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_Service" Association="Self.FK_ServiceOrderLine_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_ServiceOrder" Association="Self.FK_ServiceOrderLine_ServiceOrder">
+            <End Role="ServiceOrder" EntitySet="ServiceOrder" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_ServiceQuote" Association="Self.FK_ServiceOrderLine_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuote" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_SQ_Line" Association="Self.FK_ServiceOrderLine_SQ_Line">
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceProvider_SP_Status" Association="Self.FK_ServiceProvider_SP_Status">
+            <End Role="SP_Status" EntitySet="SP_Status" />
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceProvider_User" Association="Self.FK_ServiceProvider_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceQuote_ServiceQuoteStatus" Association="Self.FK_ServiceQuote_ServiceQuoteStatus">
+            <End Role="ServiceQuoteStatus" EntitySet="ServiceQuoteStatus" />
+            <End Role="ServiceQuote" EntitySet="ServiceQuote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceRequest_Consumer" Association="Self.FK_ServiceRequest_Consumer">
+            <End Role="Consumer" EntitySet="Consumer" />
+            <End Role="ServiceRequest" EntitySet="ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceRequest_SR_Status" Association="Self.FK_ServiceRequest_SR_Status">
+            <End Role="SR_Status" EntitySet="SR_Status" />
+            <End Role="ServiceRequest" EntitySet="ServiceRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SO_Rating_Rating" Association="Self.FK_SO_Rating_Rating">
+            <End Role="Rating" EntitySet="Rating" />
+            <End Role="SO_Rating" EntitySet="SO_Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SO_Rating_ServiceOrder" Association="Self.FK_SO_Rating_ServiceOrder">
+            <End Role="ServiceOrder" EntitySet="ServiceOrder" />
+            <End Role="SO_Rating" EntitySet="SO_Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Application_ServiceProvider" Association="Self.FK_SP_Application_ServiceProvider">
+            <End Role="ServiceProvider" EntitySet="ServiceProvider" />
+            <End Role="SP_Application" EntitySet="SP_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Application_SP_Application_Status" Association="Self.FK_SP_Application_SP_Application_Status">
+            <End Role="SP_Application_Status" EntitySet="SP_Application_Status" />
+            <End Role="SP_Application" EntitySet="SP_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ChargeItem" Association="Self.FK_SQ_Line_ChargeItem">
+            <End Role="ChargeItem" EntitySet="ChargeItem" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_Service" Association="Self.FK_SQ_Line_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ServiceQuote" Association="Self.FK_SQ_Line_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuote" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ServiceQuote1" Association="Self.FK_SQ_Line_ServiceQuote1">
+            <End Role="ServiceQuote" EntitySet="ServiceQuote" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_SR_Line" Association="Self.FK_SQ_Line_SR_Line">
+            <End Role="SR_Line" EntitySet="SR_Line" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_Image" Association="Self.FK_SR_Line_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_Service" Association="Self.FK_SR_Line_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_ServiceRequest" Association="Self.FK_SR_Line_ServiceRequest">
+            <End Role="ServiceRequest" EntitySet="ServiceRequest" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Surburb_City" Association="Self.FK_Surburb_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Surburb" EntitySet="Surburb" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InternetServicesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StreetNumber" Type="Int32" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SuburbID" Type="Int32" />
+          <NavigationProperty Name="Surburb" Relationship="Self.FK_Address_Surburb" FromRole="Address" ToRole="Surburb" />
+          <NavigationProperty Name="Consumers" Relationship="Self.FK_Consumer_Address" FromRole="Address" ToRole="Consumer" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Functions" Relationship="Self.FK_Function_Admin" FromRole="Admin" ToRole="Function" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Services" Relationship="Self.FK_Service_Category" FromRole="Category" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="ChargeItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemType" Relationship="Self.FK_ChargeItem_ItemType" FromRole="ChargeItem" ToRole="ItemType" />
+          <NavigationProperty Name="SQ_Line" Relationship="Self.FK_SQ_Line_ChargeItem" FromRole="ChargeItem" ToRole="SQ_Line" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="Int32" />
+          <NavigationProperty Name="Province" Relationship="Self.FK_City_Province" FromRole="City" ToRole="Province" />
+          <NavigationProperty Name="Surburbs" Relationship="Self.FK_Surburb_City" FromRole="City" ToRole="Surburb" />
+        </EntityType>
+        <EntityType Name="Consumer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Number" Type="Int32" />
+          <Property Name="Cell_Number" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="AddressID" Type="Int32" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_Consumer_Address" FromRole="Consumer" ToRole="Address" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Consumer_User" FromRole="Consumer" ToRole="User" />
+          <NavigationProperty Name="Functions" Relationship="Self.FK_Function_Consumer" FromRole="Consumer" ToRole="Function" />
+          <NavigationProperty Name="ServiceRequests" Relationship="Self.FK_ServiceRequest_Consumer" FromRole="Consumer" ToRole="ServiceRequest" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Provinces" Relationship="Self.FK_Province_Country" FromRole="Country" ToRole="Province" />
+        </EntityType>
+        <EntityType Name="Function">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminID" Type="Int32" />
+          <Property Name="ConsID" Type="Int32" />
+          <Property Name="SP_ID" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_Function_Admin" FromRole="Function" ToRole="Admin" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_Function_Consumer" FromRole="Function" ToRole="Consumer" />
+          <NavigationProperty Name="ServiceProvider" Relationship="Self.FK_Function_ServiceProvider" FromRole="Function" ToRole="ServiceProvider" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Attachment" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="SR_Line" Relationship="Self.FK_SR_Line_Image" FromRole="Image" ToRole="SR_Line" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ChargeItems" Relationship="Self.FK_ChargeItem_ItemType" FromRole="ItemType" ToRole="ChargeItem" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_Material" FromRole="Material" ToRole="ServiceOrderLine" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="SO_ID" Type="Int32" />
+          <NavigationProperty Name="ServiceOrder" Relationship="Self.FK_Messages_ServiceOrder" FromRole="Messages" ToRole="ServiceOrder" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_City_Province" FromRole="Province" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Province_Country" FromRole="Province" ToRole="Country" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ServiceOrders" Relationship="Self.SO_Rating" FromRole="Rating" ToRole="ServiceOrder" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Decription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Service_Category" FromRole="Service" ToRole="Category" />
+          <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_Service" FromRole="Service" ToRole="ServiceOrderLine" />
+          <NavigationProperty Name="SQ_Line" Relationship="Self.FK_SQ_Line_Service" FromRole="Service" ToRole="SQ_Line" />
+          <NavigationProperty Name="SR_Line" Relationship="Self.FK_SR_Line_Service" FromRole="Service" ToRole="SR_Line" />
+          <NavigationProperty Name="ServiceProviders" Relationship="Self.Service_SP" FromRole="Service" ToRole="ServiceProvider" />
+          <NavigationProperty Name="Utilities" Relationship="Self.Service_Utility" FromRole="Service" ToRole="Utility" />
+        </EntityType>
+        <EntityType Name="ServiceOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SO_Status_ID" Type="Int32" Nullable="false" />
+          <Property Name="SQ_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Messages_ServiceOrder" FromRole="ServiceOrder" ToRole="Messages" />
+          <NavigationProperty Name="ServiceQuote" Relationship="Self.FK_ServiceOrder_ServiceQuote" FromRole="ServiceOrder" ToRole="ServiceQuote" />
+          <NavigationProperty Name="SO_Status" Relationship="Self.FK_ServiceOrder_SO_Status" FromRole="ServiceOrder" ToRole="SO_Status" />
+          <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_ServiceOrder" FromRole="ServiceOrder" ToRole="ServiceOrderLine" />
+          <NavigationProperty Name="Ratings" Relationship="Self.SO_Rating" FromRole="ServiceOrder" ToRole="Rating" />
+        </EntityType>
+        <EntityType Name="ServiceOrderLine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SO_ID" Type="Int32" Nullable="false" />
+          <Property Name="Service_ID" Type="Int32" Nullable="false" />
+          <Property Name="SQ_ID" Type="Int32" />
+          <Property Name="SQL_ID" Type="Int32" />
+          <Property Name="Material_ID" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_ServiceOrderLine_Material" FromRole="ServiceOrderLine" ToRole="Material" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_ServiceOrderLine_Service" FromRole="ServiceOrderLine" ToRole="Service" />
+          <NavigationProperty Name="ServiceOrder" Relationship="Self.FK_ServiceOrderLine_ServiceOrder" FromRole="ServiceOrderLine" ToRole="ServiceOrder" />
+          <NavigationProperty Name="ServiceQuote" Relationship="Self.FK_ServiceOrderLine_ServiceQuote" FromRole="ServiceOrderLine" ToRole="ServiceQuote" />
+          <NavigationProperty Name="SQ_Line" Relationship="Self.FK_ServiceOrderLine_SQ_Line" FromRole="ServiceOrderLine" ToRole="SQ_Line" />
+        </EntityType>
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AverageRating" Type="Int32" />
+          <Property Name="ID_Number" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SP_Status_ID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Functions" Relationship="Self.FK_Function_ServiceProvider" FromRole="ServiceProvider" ToRole="Function" />
+          <NavigationProperty Name="SP_Status" Relationship="Self.FK_ServiceProvider_SP_Status" FromRole="ServiceProvider" ToRole="SP_Status" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ServiceProvider_User" FromRole="ServiceProvider" ToRole="User" />
+          <NavigationProperty Name="SP_Application" Relationship="Self.FK_SP_Application_ServiceProvider" FromRole="ServiceProvider" ToRole="SP_Application" />
+          <NavigationProperty Name="Services" Relationship="Self.Service_SP" FromRole="ServiceProvider" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="ServiceQuote">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddtionalDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SQ_Status_ID" Type="Int32" />
+          <Property Name="PaymentMethod_ID" Type="Int32" />
+          <NavigationProperty Name="ServiceOrders" Relationship="Self.FK_ServiceOrder_ServiceQuote" FromRole="ServiceQuote" ToRole="ServiceOrder" />
+          <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_ServiceQuote" FromRole="ServiceQuote" ToRole="ServiceOrderLine" />
+          <NavigationProperty Name="ServiceQuoteStatu" Relationship="Self.FK_ServiceQuote_ServiceQuoteStatus" FromRole="ServiceQuote" ToRole="ServiceQuoteStatus" />
+          <NavigationProperty Name="SQ_Line" Relationship="Self.FK_SQ_Line_ServiceQuote" FromRole="ServiceQuote" ToRole="SQ_Line" />
+          <NavigationProperty Name="SQ_Line1" Relationship="Self.FK_SQ_Line_ServiceQuote1" FromRole="ServiceQuote" ToRole="SQ_Line" />
+        </EntityType>
+        <EntityType Name="ServiceQuoteStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ServiceQuotes" Relationship="Self.FK_ServiceQuote_ServiceQuoteStatus" FromRole="ServiceQuoteStatus" ToRole="ServiceQuote" />
+        </EntityType>
+        <EntityType Name="ServiceRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="ConsID" Type="Int32" />
+          <Property Name="SR_Status_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Consumer" Relationship="Self.FK_ServiceRequest_Consumer" FromRole="ServiceRequest" ToRole="Consumer" />
+          <NavigationProperty Name="SR_Status" Relationship="Self.FK_ServiceRequest_SR_Status" FromRole="ServiceRequest" ToRole="SR_Status" />
+          <NavigationProperty Name="SR_Line" Relationship="Self.FK_SR_Line_ServiceRequest" FromRole="ServiceRequest" ToRole="SR_Line" />
+        </EntityType>
+        <EntityType Name="SO_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ServiceOrders" Relationship="Self.FK_ServiceOrder_SO_Status" FromRole="SO_Status" ToRole="ServiceOrder" />
+        </EntityType>
+        <EntityType Name="SP_Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FrontBack" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="SP_ID" Type="Int32" Nullable="false" />
+          <Property Name="SPA_Status_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ServiceProvider" Relationship="Self.FK_SP_Application_ServiceProvider" FromRole="SP_Application" ToRole="ServiceProvider" />
+          <NavigationProperty Name="SP_Application_Status" Relationship="Self.FK_SP_Application_SP_Application_Status" FromRole="SP_Application" ToRole="SP_Application_Status" />
+        </EntityType>
+        <EntityType Name="SP_Application_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SP_Application" Relationship="Self.FK_SP_Application_SP_Application_Status" FromRole="SP_Application_Status" ToRole="SP_Application" />
+        </EntityType>
+        <EntityType Name="SP_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ServiceProviders" Relationship="Self.FK_ServiceProvider_SP_Status" FromRole="SP_Status" ToRole="ServiceProvider" />
+        </EntityType>
+        <EntityType Name="SQ_Line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="SQ_ID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="ChargeItem_ID" Type="Int32" Nullable="false" />
+          <Property Name="SRL_ID" Type="Int32" />
+          <NavigationProperty Name="ChargeItem" Relationship="Self.FK_SQ_Line_ChargeItem" FromRole="SQ_Line" ToRole="ChargeItem" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_SQ_Line_Service" FromRole="SQ_Line" ToRole="Service" />
+          <NavigationProperty Name="ServiceOrderLines" Relationship="Self.FK_ServiceOrderLine_SQ_Line" FromRole="SQ_Line" ToRole="ServiceOrderLine" />
+          <NavigationProperty Name="ServiceQuote" Relationship="Self.FK_SQ_Line_ServiceQuote" FromRole="SQ_Line" ToRole="ServiceQuote" />
+          <NavigationProperty Name="ServiceQuote1" Relationship="Self.FK_SQ_Line_ServiceQuote1" FromRole="SQ_Line" ToRole="ServiceQuote" />
+          <NavigationProperty Name="SR_Line" Relationship="Self.FK_SQ_Line_SR_Line" FromRole="SQ_Line" ToRole="SR_Line" />
+        </EntityType>
+        <EntityType Name="SR_Line">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service_ID" Type="Int32" Nullable="false" />
+          <Property Name="SR_ID" Type="Int32" Nullable="false" />
+          <Property Name="Image_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_SR_Line_Image" FromRole="SR_Line" ToRole="Image" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_SR_Line_Service" FromRole="SR_Line" ToRole="Service" />
+          <NavigationProperty Name="ServiceRequest" Relationship="Self.FK_SR_Line_ServiceRequest" FromRole="SR_Line" ToRole="ServiceRequest" />
+          <NavigationProperty Name="SQ_Line" Relationship="Self.FK_SQ_Line_SR_Line" FromRole="SR_Line" ToRole="SQ_Line" />
+        </EntityType>
+        <EntityType Name="SR_Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ServiceRequests" Relationship="Self.FK_ServiceRequest_SR_Status" FromRole="SR_Status" ToRole="ServiceRequest" />
+        </EntityType>
+        <EntityType Name="Surburb">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int32" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Surburb" FromRole="Surburb" ToRole="Address" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Surburb_City" FromRole="Surburb" ToRole="City" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PowerSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Consumers" Relationship="Self.FK_Consumer_User" FromRole="User" ToRole="Consumer" />
+          <NavigationProperty Name="ServiceProviders" Relationship="Self.FK_ServiceProvider_User" FromRole="User" ToRole="ServiceProvider" />
+        </EntityType>
+        <EntityType Name="Utility">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="Int32" />
+          <NavigationProperty Name="Services" Relationship="Self.Service_Utility" FromRole="Utility" ToRole="Service" />
+        </EntityType>
+        <Association Name="FK_Address_Surburb">
+          <End Role="Surburb" Type="Self.Surburb" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Surburb">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="SuburbID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consumer_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consumer">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_Admin">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChargeItem_ItemType">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
+          <End Role="ChargeItem" Type="Self.ChargeItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChargeItem">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_ChargeItem">
+          <End Role="ChargeItem" Type="Self.ChargeItem" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeItem">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="ChargeItem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Province">
+          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Surburb_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Surburb" Type="Self.Surburb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Surburb">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Consumer_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Consumer">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_Consumer">
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="ConsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceRequest_Consumer">
+          <End Role="Consumer" Type="Self.Consumer" Multiplicity="0..1" />
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Consumer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceRequest">
+              <PropertyRef Name="ConsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Province" Type="Self.Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Province">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Function_ServiceProvider">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="0..1" />
+          <End Role="Function" Type="Self.Function" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Function">
+              <PropertyRef Name="SP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="Image_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="Material_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_ServiceOrder">
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="0..1" />
+          <End Role="Messages" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="Service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrder_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrder">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrder_SO_Status">
+          <End Role="SO_Status" Type="Self.SO_Status" Multiplicity="1" />
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SO_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrder">
+              <PropertyRef Name="SO_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_ServiceOrder">
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOrderLine_SQ_Line">
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="0..1" />
+          <End Role="ServiceOrderLine" Type="Self.ServiceOrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SQ_Line">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceOrderLine">
+              <PropertyRef Name="SQL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceProvider_SP_Status">
+          <End Role="SP_Status" Type="Self.SP_Status" Multiplicity="1" />
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SP_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceProvider">
+              <PropertyRef Name="SP_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceProvider_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceProvider">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Application_ServiceProvider">
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="1" />
+          <End Role="SP_Application" Type="Self.SP_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceProvider">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SP_Application">
+              <PropertyRef Name="SP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceQuote_ServiceQuoteStatus">
+          <End Role="ServiceQuoteStatus" Type="Self.ServiceQuoteStatu" Multiplicity="0..1" />
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuoteStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceQuote">
+              <PropertyRef Name="SQ_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_ServiceQuote">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_ServiceQuote1">
+          <End Role="ServiceQuote" Type="Self.ServiceQuote" Multiplicity="1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceQuote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceRequest_SR_Status">
+          <End Role="SR_Status" Type="Self.SR_Status" Multiplicity="1" />
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ServiceRequest">
+              <PropertyRef Name="SR_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SR_Line_ServiceRequest">
+          <End Role="ServiceRequest" Type="Self.ServiceRequest" Multiplicity="1" />
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceRequest">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SR_Line">
+              <PropertyRef Name="SR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SP_Application_SP_Application_Status">
+          <End Role="SP_Application_Status" Type="Self.SP_Application_Status" Multiplicity="1" />
+          <End Role="SP_Application" Type="Self.SP_Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SP_Application_Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SP_Application">
+              <PropertyRef Name="SPA_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SQ_Line_SR_Line">
+          <End Role="SR_Line" Type="Self.SR_Line" Multiplicity="0..1" />
+          <End Role="SQ_Line" Type="Self.SQ_Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SR_Line">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SQ_Line">
+              <PropertyRef Name="SRL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Service_SP">
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <End Role="ServiceProvider" Type="Self.ServiceProvider" Multiplicity="*" />
+        </Association>
+        <Association Name="Service_Utility">
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <End Role="Utility" Type="Self.Utility" Multiplicity="*" />
+        </Association>
+        <Association Name="SO_Rating">
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <End Role="ServiceOrder" Type="Self.ServiceOrder" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="InternetServicesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="ChargeItems" EntityType="Self.ChargeItem" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Consumers" EntityType="Self.Consumer" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Functions" EntityType="Self.Function" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
+          <EntitySet Name="Materials" EntityType="Self.Material" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="ServiceOrders" EntityType="Self.ServiceOrder" />
+          <EntitySet Name="ServiceOrderLines" EntityType="Self.ServiceOrderLine" />
+          <EntitySet Name="ServiceProviders" EntityType="Self.ServiceProvider" />
+          <EntitySet Name="ServiceQuotes" EntityType="Self.ServiceQuote" />
+          <EntitySet Name="ServiceQuoteStatus" EntityType="Self.ServiceQuoteStatu" />
+          <EntitySet Name="ServiceRequests" EntityType="Self.ServiceRequest" />
+          <EntitySet Name="SO_Status" EntityType="Self.SO_Status" />
+          <EntitySet Name="SP_Application" EntityType="Self.SP_Application" />
+          <EntitySet Name="SP_Application_Status" EntityType="Self.SP_Application_Status" />
+          <EntitySet Name="SP_Status" EntityType="Self.SP_Status" />
+          <EntitySet Name="SQ_Line" EntityType="Self.SQ_Line" />
+          <EntitySet Name="SR_Line" EntityType="Self.SR_Line" />
+          <EntitySet Name="SR_Status" EntityType="Self.SR_Status" />
+          <EntitySet Name="Surburbs" EntityType="Self.Surburb" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Utilities" EntityType="Self.Utility" />
+          <AssociationSet Name="FK_Address_Surburb" Association="Self.FK_Address_Surburb">
+            <End Role="Surburb" EntitySet="Surburbs" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consumer_Address" Association="Self.FK_Consumer_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Consumer" EntitySet="Consumers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_Admin" Association="Self.FK_Function_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Function" EntitySet="Functions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Category" Association="Self.FK_Service_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Service" EntitySet="Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChargeItem_ItemType" Association="Self.FK_ChargeItem_ItemType">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="ChargeItem" EntitySet="ChargeItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ChargeItem" Association="Self.FK_SQ_Line_ChargeItem">
+            <End Role="ChargeItem" EntitySet="ChargeItems" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Surburb_City" Association="Self.FK_Surburb_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Surburb" EntitySet="Surburbs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consumer_User" Association="Self.FK_Consumer_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Consumer" EntitySet="Consumers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_Consumer" Association="Self.FK_Function_Consumer">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="Function" EntitySet="Functions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceRequest_Consumer" Association="Self.FK_ServiceRequest_Consumer">
+            <End Role="Consumer" EntitySet="Consumers" />
+            <End Role="ServiceRequest" EntitySet="ServiceRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Province" EntitySet="Provinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Function_ServiceProvider" Association="Self.FK_Function_ServiceProvider">
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+            <End Role="Function" EntitySet="Functions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_Image" Association="Self.FK_SR_Line_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_Material" Association="Self.FK_ServiceOrderLine_Material">
+            <End Role="Material" EntitySet="Materials" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messages_ServiceOrder" Association="Self.FK_Messages_ServiceOrder">
+            <End Role="ServiceOrder" EntitySet="ServiceOrders" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_Service" Association="Self.FK_ServiceOrderLine_Service">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_Service" Association="Self.FK_SQ_Line_Service">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_Service" Association="Self.FK_SR_Line_Service">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrder_ServiceQuote" Association="Self.FK_ServiceOrder_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuotes" />
+            <End Role="ServiceOrder" EntitySet="ServiceOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrder_SO_Status" Association="Self.FK_ServiceOrder_SO_Status">
+            <End Role="SO_Status" EntitySet="SO_Status" />
+            <End Role="ServiceOrder" EntitySet="ServiceOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_ServiceOrder" Association="Self.FK_ServiceOrderLine_ServiceOrder">
+            <End Role="ServiceOrder" EntitySet="ServiceOrders" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_ServiceQuote" Association="Self.FK_ServiceOrderLine_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuotes" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOrderLine_SQ_Line" Association="Self.FK_ServiceOrderLine_SQ_Line">
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+            <End Role="ServiceOrderLine" EntitySet="ServiceOrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceProvider_SP_Status" Association="Self.FK_ServiceProvider_SP_Status">
+            <End Role="SP_Status" EntitySet="SP_Status" />
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceProvider_User" Association="Self.FK_ServiceProvider_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Application_ServiceProvider" Association="Self.FK_SP_Application_ServiceProvider">
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+            <End Role="SP_Application" EntitySet="SP_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceQuote_ServiceQuoteStatus" Association="Self.FK_ServiceQuote_ServiceQuoteStatus">
+            <End Role="ServiceQuoteStatus" EntitySet="ServiceQuoteStatus" />
+            <End Role="ServiceQuote" EntitySet="ServiceQuotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ServiceQuote" Association="Self.FK_SQ_Line_ServiceQuote">
+            <End Role="ServiceQuote" EntitySet="ServiceQuotes" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_ServiceQuote1" Association="Self.FK_SQ_Line_ServiceQuote1">
+            <End Role="ServiceQuote" EntitySet="ServiceQuotes" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceRequest_SR_Status" Association="Self.FK_ServiceRequest_SR_Status">
+            <End Role="SR_Status" EntitySet="SR_Status" />
+            <End Role="ServiceRequest" EntitySet="ServiceRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SR_Line_ServiceRequest" Association="Self.FK_SR_Line_ServiceRequest">
+            <End Role="ServiceRequest" EntitySet="ServiceRequests" />
+            <End Role="SR_Line" EntitySet="SR_Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SP_Application_SP_Application_Status" Association="Self.FK_SP_Application_SP_Application_Status">
+            <End Role="SP_Application_Status" EntitySet="SP_Application_Status" />
+            <End Role="SP_Application" EntitySet="SP_Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SQ_Line_SR_Line" Association="Self.FK_SQ_Line_SR_Line">
+            <End Role="SR_Line" EntitySet="SR_Line" />
+            <End Role="SQ_Line" EntitySet="SQ_Line" />
+          </AssociationSet>
+          <AssociationSet Name="Service_SP" Association="Self.Service_SP">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="ServiceProvider" EntitySet="ServiceProviders" />
+          </AssociationSet>
+          <AssociationSet Name="Service_Utility" Association="Self.Service_Utility">
+            <End Role="Service" EntitySet="Services" />
+            <End Role="Utility" EntitySet="Utilities" />
+          </AssociationSet>
+          <AssociationSet Name="SO_Rating" Association="Self.SO_Rating">
+            <End Role="Rating" EntitySet="Ratings" />
+            <End Role="ServiceOrder" EntitySet="ServiceOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InternetServicesModelStoreContainer" CdmEntityContainer="InternetServicesEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="InternetServicesModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="SuburbID" ColumnName="SuburbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="InternetServicesModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="InternetServicesModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChargeItems">
+            <EntityTypeMapping TypeName="InternetServicesModel.ChargeItem">
+              <MappingFragment StoreEntitySet="ChargeItem">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="InternetServicesModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Consumers">
+            <EntityTypeMapping TypeName="InternetServicesModel.Consumer">
+              <MappingFragment StoreEntitySet="Consumer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="Cell_Number" ColumnName="Cell_Number" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="InternetServicesModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Functions">
+            <EntityTypeMapping TypeName="InternetServicesModel.Function">
+              <MappingFragment StoreEntitySet="Function">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="ConsID" ColumnName="ConsID" />
+                <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="InternetServicesModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="InternetServicesModel.ItemType">
+              <MappingFragment StoreEntitySet="ItemType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="InternetServicesModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="InternetServicesModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="SO_ID" ColumnName="SO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="InternetServicesModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="InternetServicesModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="InternetServicesModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Decription" ColumnName="Decription" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceOrders">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceOrder">
+              <MappingFragment StoreEntitySet="ServiceOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SO_Status_ID" ColumnName="SO_Status_ID" />
+                <ScalarProperty Name="SQ_ID" ColumnName="SQ_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceOrderLines">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceOrderLine">
+              <MappingFragment StoreEntitySet="ServiceOrderLine">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SO_ID" ColumnName="SO_ID" />
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="SQ_ID" ColumnName="SQ_ID" />
+                <ScalarProperty Name="SQL_ID" ColumnName="SQL_ID" />
+                <ScalarProperty Name="Material_ID" ColumnName="Material_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceProviders">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceProvider">
+              <MappingFragment StoreEntitySet="ServiceProvider">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="AverageRating" ColumnName="AverageRating" />
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="SP_Status_ID" ColumnName="SP_Status_ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceQuotes">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceQuote">
+              <MappingFragment StoreEntitySet="ServiceQuote">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AddtionalDetails" ColumnName="AddtionalDetails" />
+                <ScalarProperty Name="SQ_Status_ID" ColumnName="SQ_Status_ID" />
+                <ScalarProperty Name="PaymentMethod_ID" ColumnName="PaymentMethod_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceQuoteStatus">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceQuoteStatu">
+              <MappingFragment StoreEntitySet="ServiceQuoteStatus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceRequests">
+            <EntityTypeMapping TypeName="InternetServicesModel.ServiceRequest">
+              <MappingFragment StoreEntitySet="ServiceRequest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ConsID" ColumnName="ConsID" />
+                <ScalarProperty Name="SR_Status_ID" ColumnName="SR_Status_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SO_Status">
+            <EntityTypeMapping TypeName="InternetServicesModel.SO_Status">
+              <MappingFragment StoreEntitySet="SO_Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SP_Application">
+            <EntityTypeMapping TypeName="InternetServicesModel.SP_Application">
+              <MappingFragment StoreEntitySet="SP_Application">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_FrontBack" ColumnName="ID_FrontBack" />
+                <ScalarProperty Name="SP_ID" ColumnName="SP_ID" />
+                <ScalarProperty Name="SPA_Status_ID" ColumnName="SPA_Status_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SP_Application_Status">
+            <EntityTypeMapping TypeName="InternetServicesModel.SP_Application_Status">
+              <MappingFragment StoreEntitySet="SP_Application_Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SP_Status">
+            <EntityTypeMapping TypeName="InternetServicesModel.SP_Status">
+              <MappingFragment StoreEntitySet="SP_Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SQ_Line">
+            <EntityTypeMapping TypeName="InternetServicesModel.SQ_Line">
+              <MappingFragment StoreEntitySet="SQ_Line">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="SQ_ID" ColumnName="SQ_ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ChargeItem_ID" ColumnName="ChargeItem_ID" />
+                <ScalarProperty Name="SRL_ID" ColumnName="SRL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SR_Line">
+            <EntityTypeMapping TypeName="InternetServicesModel.SR_Line">
+              <MappingFragment StoreEntitySet="SR_Line">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
+                <ScalarProperty Name="SR_ID" ColumnName="SR_ID" />
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SR_Status">
+            <EntityTypeMapping TypeName="InternetServicesModel.SR_Status">
+              <MappingFragment StoreEntitySet="SR_Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Surburbs">
+            <EntityTypeMapping TypeName="InternetServicesModel.Surburb">
+              <MappingFragment StoreEntitySet="Surburb">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="InternetServicesModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="InternetServicesModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="PowerSalt" ColumnName="PowerSalt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilities">
+            <EntityTypeMapping TypeName="InternetServicesModel.Utility">
+              <MappingFragment StoreEntitySet="Utility">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Service_SP" TypeName="InternetServicesModel.Service_SP" StoreEntitySet="Service_SP">
+            <EndProperty Name="Service">
+              <ScalarProperty Name="ID" ColumnName="Service_ID" />
+            </EndProperty>
+            <EndProperty Name="ServiceProvider">
+              <ScalarProperty Name="ID" ColumnName="SP_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Service_Utility" TypeName="InternetServicesModel.Service_Utility" StoreEntitySet="Service_Utility">
+            <EndProperty Name="Service">
+              <ScalarProperty Name="ID" ColumnName="Service_ID" />
+            </EndProperty>
+            <EndProperty Name="Utility">
+              <ScalarProperty Name="ID" ColumnName="Utility_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SO_Rating" TypeName="InternetServicesModel.SO_Rating" StoreEntitySet="SO_Rating">
+            <EndProperty Name="Rating">
+              <ScalarProperty Name="ID" ColumnName="Rating_ID" />
+            </EndProperty>
+            <EndProperty Name="ServiceOrder">
+              <ScalarProperty Name="ID" ColumnName="SO_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

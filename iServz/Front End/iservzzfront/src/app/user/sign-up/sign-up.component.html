@@ -26,6 +26,20 @@
             <label>Last Name</label>
           </div>
         </div>
+
+
+        <div class="row" *ngIf="roles">
+          <ul>
+            <li *ngFor="let item of roles;let i = index">
+              <label>
+              <input type="checkbox" [id]="'roles-'+i" value="{{item.Id}}" [checked]="item.selected"  (change)="updateSelectedRoles(i)">
+              <span >{{item.Name}}</span>
+            </label>
+
+            </li>
+          </ul>
+        </div>
+
         <div class="row">
             <div class="input-field col s12">
               <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Register</button>

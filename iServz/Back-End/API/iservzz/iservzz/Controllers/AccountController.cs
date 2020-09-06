@@ -28,6 +28,7 @@ namespace iservzz.Controllers
                 RequiredLength = 3
             };
             IdentityResult result = manager.Create(user, model.Password);
+            manager.AddToRoles(user.Id, model.Roles);
             return result;
         }
 
@@ -47,6 +48,38 @@ namespace iservzz.Controllers
                 LoggedOn = identityClaims.FindFirst("LoggedOn").Value
             };
             return model;
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("api/ForAdminRole")]
+        public string ForAdminRole()
+        {
+            return "for admin role";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Consumer")]
+        [Route("api/ForConsumerRole")]
+        public string ForConsumerRole()
+        {
+            return "For consumer role";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Service Provider")]
+        [Route("api/ForServiceProviderRole")]
+        public string ForServiceProviderRole()
+        {
+            return "For service provider role";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin,Consumer")]
+        [Route("api/ForadminOrconsumer")]
+        public string ForAuthorOrReader()
+        {
+            return "For admin/consumer role/";
         }
     }
 }

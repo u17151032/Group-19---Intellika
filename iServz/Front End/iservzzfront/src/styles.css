@@ -33,3 +33,11 @@ div.error-message i{
 .tabs .tab a.active{
   background-color: rgb(255, 255, 255) !important;
 }
+
+input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

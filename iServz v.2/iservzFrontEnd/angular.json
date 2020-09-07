@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "iservzFrontEnd"
+    }
+  },
+  "defaultProject": "iservzFrontEnd",
+  "cli": {
+    "analytics": "0622e268-caca-4d2a-a672-8aede3cbfe09"
+  }
 }

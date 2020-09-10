@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "iservzzfront"
+  "defaultProject": "iservzzfront",
+  "cli": {
+    "analytics": "f2083322-c35c-4bf9-9db6-dda38fe01f08"
+  }
 }

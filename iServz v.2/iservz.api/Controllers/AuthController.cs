@@ -15,7 +15,7 @@ using System.IdentityModel.Tokens.Jwt;
 namespace Iservz.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;

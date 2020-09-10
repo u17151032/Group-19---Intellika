@@ -39,5 +39,7 @@ namespace iservzz.Models
             modelBuilder.Entity<IdentityUserLogin>()
                 .ToTable("UserLogin");
         }
+
+        public System.Data.Entity.DbSet<iservzz.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

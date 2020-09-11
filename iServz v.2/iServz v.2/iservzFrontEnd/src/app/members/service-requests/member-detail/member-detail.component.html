@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <i class="fa fa-user" style="font-size:300px"></i>
+        <div class="card-body">
+          <div>
+            <strong>Name:</strong>
+            <p>{{user.username}}</p>
+          </div>
+          <div>
+            <strong>Location:</strong>
+            <p>{{user.city}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user.lastActive | timeAgo}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+      
+            <button class="btn btn-success w-100" (click)="selectTab(1)">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset #memberTabs>
+          <tab heading="About">
+            <h2><strong>Description:</strong></h2>
+            <h3>{{user.country}}</h3>
+            <h2><strong>Location:</strong></h2>
+            <h3> {{user.city}}</h3>
+            <h2><strong>Service Providing:</strong></h2>
+            <h3> {{user.firstName}}</h3>
+          </tab>
+          
+          <tab heading="Messages">
+            <app-member-messages [recipientId]="user.id"></app-member-messages>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+ 

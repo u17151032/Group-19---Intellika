@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="btn-group">
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Unread" (click)="loadRequests()">
+        <i class="fa fa-envelope"></i> Service Requests
+      </button>
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Inbox" (click)="loadRequests()">
+        <i class="fa fa-envelope-open"></i> Inbox
+      </button>
+      <button class="btn btn-primary" [(ngModel)]="messageContainer" btnRadio="Outbox" (click)="loadRequests()">
+        <i class="fa fa-paper-plane"></i> Outbox
+      </button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="requests.length == 0">
+    <h3>No messages</h3>
+  </div>
+
+  <div class="row" *ngIf="requests.length > 0">
+    <table class="table table-hover" style="cursor: pointer">
+      <tr>
+        <th style="width: 5%">Description</th>
+        <th style="width: 5%">Date</th>
+        <th style="width: 5%">Time</th>
+        <th style="width: 5%">City</th>
+        <th style="width: 5%">Surburb</th>
+        <th style="width: 5%">Street</th>
+        <th style="width: 5%">From</th>
+        <th style="width: 5%">Received</th>
+        <th style="width: 10%"></th>
+      </tr>
+      <tr *ngFor="let request of requests" [routerLink]="['/serviceRequests',
+        messageContainer == 'Outbox' ? request.recipientId : request.senderId]" [queryParams]="{tab: 3}">
+        <td>{{request.description}}</td>
+        <td>{{request.date}}</td>
+        <td>{{request.time}}</td>
+        <td>{{request.address1}}</td>
+        <td>{{request.address2}}</td>
+        <td>{{request.address3}}</td>
+        
+        <td>
+          <div *ngIf="messageContainer != 'Outbox'">
+                <img src={{request?.senderPhotoUrl}} class="img-circle rounded-circle mr-1">
+                <strong>{{request.senderKnownAs}}</strong>
+          </div>
+          <div *ngIf="messageContainer == 'Outbox'">
+                <img src={{request?.recipientPhotoUrl}} class="img-circle rounded-circle mr-1">
+                <strong>{{request.recipientKnownAs}}</strong>
+          </div>
+        </td>
+        <td>{{request.messageSent | timeAgo}}</td>
+        <td>
+          <button class="btn btn-success" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">Accept</button>
+          <button class="btn btn-danger" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">Reject</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  </pagination>
+</div>

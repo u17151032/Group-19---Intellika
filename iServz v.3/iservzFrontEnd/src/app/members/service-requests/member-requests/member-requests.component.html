@@ -1,0 +1,82 @@
+<div class="card">
+ 
+  
+  <div class="card-body">
+    <div *ngIf="requests?.length === 0">
+      No messages
+    </div>
+
+    <!----<ul class="chat">
+      <li *ngFor="let request of requests">
+       
+        <div *ngIf="request.senderId == recipientId">
+          <span class="chat-img float-left">
+            <img src="{{request.senderPhotoUrl}}" alt="{{request.senderKnownAs}}" class="rounded-circle">
+          </span>
+          <div class="chat-body">
+            <div class="header">
+              <strong class="primary-font">{{request.senderKnownAs}}</strong>
+              <small class="text-muted float-right">
+                <span class="fa fa-clock-o">{{request.messageSent | timeAgo}}</span>
+              </small>
+            </div>
+            <p>{{request.description}}</p>
+            <p>{{request.date}}</p>
+            <p>{{request.time}}</p>
+            <p>{{request.address1}}</p>
+            <p>{{request.address2}}</p>
+            <p>{{request.address3}}</p>
+          </div>
+        </div>
+
+        <!-- to me -->
+        
+
+  <div class="card-footer">
+    <form #requestForm="ngForm" (ngSubmit)="requestForm.valid && sendRequest()">
+      <div >
+        <input type="text"
+          [(ngModel)]="newRequest.description"
+          name="description"
+          required
+          class="form-control input-sm"
+          placeholder="Job Description">
+          <input type="text"
+          [(ngModel)]="newRequest.date"
+          name="date"
+          required
+          class="form-control input-sm"
+          placeholder="Date">
+          <input type="text"
+          [(ngModel)]="newRequest.time"
+          name="time"
+          required
+          class="form-control input-sm"
+          placeholder="Time">
+          <input type="text"
+          [(ngModel)]="newRequest.address1"
+          name="city"
+          required
+          class="form-control input-sm"
+          placeholder="City">
+          <input type="text"
+          [(ngModel)]="newRequest.address2"
+          name="surburb"
+          required
+          class="form-control input-sm"
+          placeholder="Surburb">
+          <input type="text"
+          [(ngModel)]="newRequest.address3"
+          name="street"
+          required
+          class="form-control input-sm"
+          placeholder="Street"><br>
+        <div class="input-group-append">
+          <button [disabled]="!requestForm.valid" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
